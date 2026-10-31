@@ -5,330 +5,321 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Energy Sector Monitor</title>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: #0f1117;
-    color: #e2e8f0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 14px;
-    line-height: 1.5;
-    min-height: 100vh;
-  }
-  a { color: #60a5fa; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-
-  header {
-    background: #1a1d27;
-    border-bottom: 1px solid #2d3148;
-    padding: 20px 24px;
-  }
-  header h1 {
-    font-size: 22px;
-    font-weight: 700;
-    color: #f1f5f9;
-    letter-spacing: -0.3px;
-  }
-  header .meta {
-    margin-top: 4px;
-    font-size: 12px;
-    color: #94a3b8;
-  }
-  header .meta span { margin-right: 16px; }
-
-  main {
-    padding: 24px 16px;
-    max-width: 1440px;
-    margin: 0 auto;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    align-items: stretch;
-  }
-  @media (max-width: 1100px) {
-    .grid { grid-template-columns: repeat(3, 1fr); }
-  }
-  @media (max-width: 720px) {
-    .grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 460px) {
-    .grid { grid-template-columns: 1fr; }
-  }
-
-  .card {
-    background: #1a1d27;
-    border: 1px solid #2d3148;
-    border-radius: 10px;
-    padding: 16px;
-    overflow: hidden;
-    min-height: 160px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    transition: border-color 0.15s;
-  }
-  .card:hover { border-color: #4a5080; }
-
-  .card-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 8px;
-  }
-  .sector-name {
-    font-weight: 700;
-    font-size: 13px;
-    color: #f1f5f9;
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-  .badge {
-    flex-shrink: 0;
-    font-size: 10px;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 99px;
-    white-space: nowrap;
-    line-height: 1.6;
-  }
-  .badge-high   { background: rgba(239,68,68,0.18);  color: #ef4444; }
-  .badge-medium { background: rgba(245,158,11,0.18); color: #f59e0b; }
-  .badge-low    { background: rgba(34,197,94,0.18);  color: #22c55e; }
-  .badge-nodata { background: rgba(107,114,128,0.18);color: #6b7280; }
-
-  .headline {
-    font-size: 12px;
-    color: #cbd5e1;
-    word-break: break-word;
-    overflow-wrap: break-word;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    max-height: 3.2em;
-  }
-  .source {
-    font-size: 11px;
-    color: #64748b;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-top: auto;
-  }
-
-  footer {
-    margin-top: 40px;
-    border-top: 1px solid #2d3148;
-    padding: 20px 16px;
-    text-align: center;
-    font-size: 12px;
-    color: #64748b;
-  }
-  footer a { color: #60a5fa; }
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #0f1117;
+  color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+  min-height: 100vh;
+}
+header {
+  padding: 2rem 1.5rem 1rem;
+  border-bottom: 1px solid #2d3148;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: -0.02em;
+}
+.meta {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin: 0;
+}
+.meta span { margin-right: 1.5rem; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+@media (max-width: 1100px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .grid { grid-template-columns: 1fr; padding: 1rem; } }
+.card {
+  background: #1a1d27;
+  border-radius: 10px;
+  padding: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 160px;
+  border: 1px solid #2d3148;
+  transition: border-color 0.2s;
+}
+.card:hover { border-color: #4f5b80; }
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+  overflow: hidden;
+}
+.sector-name {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #f1f5f9;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  flex: 1;
+  line-height: 1.3;
+}
+.badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.badge-high     { background: rgba(239,68,68,0.15);  color: #ef4444; }
+.badge-medium   { background: rgba(245,158,11,0.15); color: #f59e0b; }
+.badge-low      { background: rgba(34,197,94,0.15);  color: #22c55e; }
+.badge-nodata   { background: rgba(107,114,128,0.15);color: #6b7280; }
+.headline {
+  font-size: 0.78rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: calc(0.78rem * 1.45 * 2);
+  word-break: break-word;
+  overflow-wrap: break-word;
+  flex: 1;
+}
+.source {
+  font-size: 0.7rem;
+  color: #64748b;
+  margin-top: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 1.2em;
+}
+footer {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  font-size: 0.75rem;
+  color: #64748b;
+  border-top: 1px solid #2d3148;
+}
+footer a { color: #60a5fa; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
+
 <header>
   <h1>Energy Sector Monitor</h1>
-  <div class="meta">
-    <span>Report date: <strong>2026-03-03</strong></span>
-    <span>Last updated: <strong>2026-10-24 (automated)</strong></span>
-    <span>20 sectors tracked</span>
-  </div>
+  <p class="meta">
+    <span>Report date: <strong>2026-03-04</strong></span>
+    <span>Last updated: <strong>2026-03-04 00:00 UTC</strong></span>
+    <span>Sectors tracked: <strong>20</strong></span>
+  </p>
 </header>
 
-<main>
-  <div class="grid">
+<div class="grid">
 
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">Oil &amp; Gas</div>
-        <span class="badge badge-high">High</span>
-      </div>
-      <div class="headline">Iran War Blockades Hormuz; US Crude Near $98 — IEA warns diesel shortage may last into 2027</div>
-      <div class="source">CNBC / Al Jazeera / IEA</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">Oil &amp; Gas</div>
+      <span class="badge badge-high">High</span>
     </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">Coal</div>
-        <span class="badge badge-high">High</span>
-      </div>
-      <div class="headline">IEA Raises 2026 Global Demand Forecast to Record 8.94 Billion Tonnes; India stocks at 6-day low</div>
-      <div class="source">IEA Coal Mid-Year Update / Business Standard</div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">Nuclear</div>
-        <span class="badge badge-high">High</span>
-      </div>
-      <div class="headline">WNA Identifies $6 Trillion Investment Challenge; EIB Backs Romania Refurb and Finland SMR</div>
-      <div class="source">World Nuclear News / NEI</div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">Hydropower</div>
-        <span class="badge badge-medium">Medium</span>
-      </div>
-      <div class="headline">Tanzania's 2115 MW Julius Nyerere Project Inaugurated; Brookfield Signs Big Tech Hydro Contracts</div>
-      <div class="source">International Water Power / NHA</div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">Solar</div>
-        <span class="badge badge-high">High</span>
-      </div>
-      <div class="headline">IEA Projects $365B Solar Investment in 2026; US Q2 Installs Up 45% Year-on-Year to 11.4 GWdc</div>
-      <div class="source">IEA / SEIA / BloombergNEF</div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">Wind</div>
-        <span class="badge badge-high">High</span>
-      </div>
-      <div class="headline">Europe On Track for Record Wind Year; China Commissions First 18 MW Turbine Project</div>
-      <div class="source">WindEurope / Wind Power Monthly</div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">Geothermal</div>
-        <span class="badge badge-medium">Medium</span>
-      </div>
-      <div class="headline">DOE Funds 21 EGS Projects With $99M; Fervo's Cape Station (53 MW) Nears First Commercial Operation</div>
-      <div class="source">US DOE / EIA / ThinkGeoEnergy</div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">Biomass / Bioenergy</div>
-        <span class="badge badge-medium">Medium</span>
-      </div>
-      <div class="headline">US Biomass Electricity Share Declining Through 2027; Indonesia Launches B50 Biodiesel Blend</div>
-      <div class="source">EIA / BioEnergy Times</div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">Hydrogen</div>
-        <span class="badge badge-medium">Medium</span>
-      </div>
-      <div class="headline">Hydrogen Council Counts $130B Committed Globally; Woodside Cancels Oklahoma Project Citing Poor Economics</div>
-      <div class="source">Hydrogen Council / IEA / GreentechLead</div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">Electricity Transmission &amp; Distribution</div>
-        <span class="badge badge-high">High</span>
-      </div>
-      <div class="headline">DOE Draft 2026 Transmission Needs Study Cites AI Data Centers; $1.9B Reconductoring Funding Released</div>
-      <div class="source">US DOE / Utility Dive</div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">Energy Storage</div>
-        <span class="badge badge-high">High</span>
-      </div>
-      <div class="headline">US Sets Q1 Record at 8.4 GWh; Abu Dhabi 5.2 GW Solar + 19 GWh Battery Closes at $6.1B</div>
-      <div class="source">ACP / Wood Mackenzie / GreentechLead</div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">Energy Efficiency &amp; Conservation</div>
-        <span class="badge badge-medium">Medium</span>
-      </div>
-      <div class="headline">DOE Moves to End Appliance Mandates and Purges Efficiency Resources; States Step In to Fill Gap</div>
-      <div class="source">Utility Dive / Inside Climate News / CAP</div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">Long-Duration Energy Storage</div>
-        <span class="badge badge-high">High</span>
-      </div>
-      <div class="headline">Form Energy Signs Multi-Day Data-Center Deals; Liquid-Air Plants Start Operations in China and UK</div>
-      <div class="source">C&amp;EN / Forbes / SMM</div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">Sodium-Ion Batteries</div>
-        <span class="badge badge-high">High</span>
-      </div>
-      <div class="headline">Peak Energy Closes $108M GM-Backed Round; CATL Resolves Bottlenecks, Eyes EV Launch by Year-End</div>
-      <div class="source">Mezha / Electrek / ESS News</div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">Green Hydrogen &amp; Green Steel</div>
-        <span class="badge badge-medium">Medium</span>
-      </div>
-      <div class="headline">HYBRIT Commercial Timeline Slips to 2030; Oman's Meranti Secures Full Offtake for Duqm HBI Plant</div>
-      <div class="source">Canary Media / IEEFA / Enki AI</div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">Virtual Power Plants &amp; DER</div>
-        <span class="badge badge-high">High</span>
-      </div>
-      <div class="headline">Google &amp; Voltus Announce 1 GW PJM VPP; Massachusetts Sets 3.5 GW Load-Management Target</div>
-      <div class="source">Globe Newswire / SEPA / Utility Dive</div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">AI-Driven Energy Management</div>
-        <span class="badge badge-high">High</span>
-      </div>
-      <div class="headline">Grid AI Market at $8.4B; Morgan Stanley Warns Grid Constraints Hit 2027–28 as Data Center Demand Surges</div>
-      <div class="source">Morgan Stanley / Kyndryl / GE Vernova</div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">Green Iron &amp; Critical Minerals</div>
-        <span class="badge badge-medium">Medium</span>
-      </div>
-      <div class="headline">US Launches FORGE Forum to Diversify Minerals Supply; GreenMet Plans $150M Processing Hub in West Virginia</div>
-      <div class="source">US Mission to AU / Mining Technology</div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">Solar + Battery Hybrid</div>
-        <span class="badge badge-high">High</span>
-      </div>
-      <div class="headline">EBRD Finances 450 MW/1 GWh Hungary Portfolio; Brazil Approves First Co-Located Solar-Battery Project</div>
-      <div class="source">EBRD / PV Magazine / reNews</div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="sector-name">Circular Economy for Energy Hardware</div>
-        <span class="badge badge-medium">Medium</span>
-      </div>
-      <div class="headline">IRENA: Annual PV Waste to Exceed 3 Mt by 2035; Washington State Stewardship Law Takes Effect July 2026</div>
-      <div class="source">IRENA / Earth911 / Green Li-ion</div>
-    </div>
-
+    <div class="headline">Middle East strikes trigger 8 mb/d supply shock; IEA releases 400 mb emergency reserves as Brent hits $112</div>
+    <div class="source">IEA Oil Market Report · OilPrice.com</div>
   </div>
-</main>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">Coal</div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="headline">South Korean-backed 1.25-GW Terra Energy Center proposed in Alaska — first new US coal plant in years</div>
+    <div class="source">World Coal Magazine</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">Nuclear</div>
+      <span class="badge badge-high">High</span>
+    </div>
+    <div class="headline">NRC grants TerraPower first advanced reactor construction permit in 40+ years; DOE launches UPRISE for 5 GW by 2029</div>
+    <div class="source">NRC · ANS Nuclear Newswire · DOE</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">Hydropower</div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="headline">India Cabinet approves 1,500 MW small hydro scheme with ₹2,584 cr outlay; Globeleq acquires Zambia hydro asset</div>
+    <div class="source">News on AIR · Tracxn</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">Solar</div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="headline">China exports 68 GW of solar in March; US residential market faces 21% contraction as SEIA projects flat utility additions</div>
+    <div class="source">Reuters / PV Tech · SEIA Q2 2026</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">Wind</div>
+      <span class="badge badge-high">High</span>
+    </div>
+    <div class="headline">Coastal Virginia Offshore Wind begins grid delivery; Vestas wins 1.38 GW UK order; Philippines opens 3.3 GW offshore auction</div>
+    <div class="source">Vestas · EDF · Offshore Wind CA</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">Geothermal</div>
+      <span class="badge badge-high">High</span>
+    </div>
+    <div class="headline">Fervo Energy closes $421M non-recourse debt for Cape Station; Ormat upsizes $1B convertible debt offering</div>
+    <div class="source">Fervo Energy · Ormat Technologies</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">Biomass / Bioenergy</div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="headline">Joint Biomethane Declaration sets 10 priority actions in Brussels; US landfill gas investment tops $1.5B planned spend</div>
+    <div class="source">Bioenergy Insight · World Biogas Association</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">Hydrogen</div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="headline">UK says £20B hydrogen investment awaits policy clarity; US cancels green H2 hub funding and 45V tax credit</div>
+    <div class="source">Hydrogen UK · Clean Energy Group / CATF</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">Electricity Transmission &amp; Distribution</div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="headline">DOE offers $1.9B for grid reconductoring; India curtails 34 GWh on March 30 alone due to transmission constraints</div>
+    <div class="source">Utility Dive · Ember</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">Energy Storage</div>
+      <span class="badge badge-high">High</span>
+    </div>
+    <div class="headline">Form Energy announces 12 GWh iron-air battery supply deal; Arevon closes $920M financing and starts Cormorant construction</div>
+    <div class="source">Trade Press · Arevon / Goldman Sachs</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">Energy Efficiency &amp; Conservation</div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="headline">EU opens post-2030 energy efficiency framework consultation; US moves Energy Star programme from EPA to DOE</div>
+    <div class="source">European Commission · DOE</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">Long-Duration Energy Storage (LDES)</div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="headline">Global LDES installations grew 49% in 2025 to exceed 15 GWh; Hydrostor compressed-air project wins California approval</div>
+    <div class="source">Wood Mackenzie / ESS News · Canary Media</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">Sodium-Ion Batteries</div>
+      <span class="badge badge-high">High</span>
+    </div>
+    <div class="headline">CATL resolves manufacturing bottleneck and begins sodium-ion mass production; first mass-market EV nears launch in China</div>
+    <div class="source">Car News China · ESS News · Electrek</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">Green Hydrogen &amp; Green Steel</div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="headline">India funds 3 green H2-steel pilot projects; EU Industrial Accelerator Act mandates 25% low-carbon steel in public procurement</div>
+    <div class="source">GMK Center · Trade Press</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">Virtual Power Plants (VPPs) &amp; DER</div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="headline">ERCOT raises VPP cap to 500 MW; Massachusetts sets 3.5 GW target; DTE Energy launches Michigan's first residential VPP pilot</div>
+    <div class="source">SEPA Q1 2026 · Utility Dive · PR Newswire</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">AI-Driven Energy Management</div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="headline">US utilities deploy AI for load forecasting as data-centre demand surges; AI systems begin live cross-border dispatch coordination</div>
+    <div class="source">Utility Dive · PowerGen Advancement</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">Green Iron &amp; Critical Minerals Processing</div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="headline">US Army bases to host rare earths and lithium processing plants; GreenMet plans $150M coal-tailings rare earths hub in West Virginia</div>
+    <div class="source">Bloomberg · Mining Technology</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">Solar + Battery Hybrid Projects</div>
+      <span class="badge badge-high">High</span>
+    </div>
+    <div class="headline">Philippines MTerra project targets 3.5 GW solar + 4.5 GWh storage — world's largest hybrid; Australia tender selects 8 hybrid projects</div>
+    <div class="source">PV Magazine · RenewEconomy</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="sector-name">Circular Economy for Energy Hardware</div>
+      <span class="badge badge-low">Low</span>
+    </div>
+    <div class="headline">Washington state solar stewardship rules take effect July 1; SolarCycle opens Georgia facility recovering 96% of panel material value</div>
+    <div class="source">Earth911 · RAND Policy Brief</div>
+  </div>
+
+</div>
 
 <footer>
-  <p>Energy Sector Monitor &mdash; automated daily intelligence &mdash;
-     <a href="https://github.com/proton123-cell/energy-monitor/tree/main/reports" target="_blank" rel="noopener">View all reports on GitHub</a>
+  <p>
+    Energy Sector Monitor &mdash; automated intelligence report &mdash;
+    <a href="https://github.com/proton123-cell/energy-monitor/tree/main/reports" target="_blank" rel="noopener">View all reports on GitHub</a>
   </p>
 </footer>
+
 </body>
 </html>
