@@ -8,242 +8,266 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{background:#0f1117;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;min-height:100vh;padding:0 0 48px}
 header{background:#12151f;border-bottom:1px solid #1e2235;padding:24px 16px 20px;text-align:center}
-header h1{font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:#fff;letter-spacing:-0.02em}
-header .meta{margin-top:6px;font-size:0.85rem;color:#64748b}
-header .meta span{color:#94a3b8}
-main{max-width:1400px;margin:32px auto 0;padding:0 16px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch}
+header h1{font-size:1.75rem;font-weight:700;color:#fff;letter-spacing:-0.02em}
+.meta{margin-top:6px;font-size:0.82rem;color:#8b97b1}
+.meta span+span::before{content:' · '}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1400px;margin:28px auto 0;padding:0 16px;align-items:stretch}
 @media(max-width:1100px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.grid{grid-template-columns:1fr}}
-.card{background:#1a1d27;border:1px solid #1e2235;border-radius:12px;padding:16px;min-height:160px;overflow:hidden;display:flex;flex-direction:column;gap:10px;transition:border-color 0.2s}
-.card:hover{border-color:#2d3250}
-.card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
-.card-title{font-size:0.9rem;font-weight:600;color:#fff;word-break:break-word;overflow-wrap:break-word;line-height:1.3;flex:1}
-.badge{flex-shrink:0;font-size:0.68rem;font-weight:600;padding:3px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap}
-.badge-high{background:rgba(239,68,68,0.15);color:#ef4444;border:1px solid rgba(239,68,68,0.3)}
-.badge-medium{background:rgba(245,158,11,0.15);color:#f59e0b;border:1px solid rgba(245,158,11,0.3)}
-.badge-low{background:rgba(34,197,94,0.15);color:#22c55e;border:1px solid rgba(34,197,94,0.3)}
-.badge-nodata{background:rgba(107,114,128,0.15);color:#6b7280;border:1px solid rgba(107,114,128,0.3)}
-.card-story{font-size:0.8rem;color:#cbd5e1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word;overflow-wrap:break-word;max-height:2.6em;line-height:1.45}
-.card-source{font-size:0.72rem;color:#475569;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:auto}
-.card-theme{font-size:0.75rem;color:#7c8db5;word-break:break-word;overflow-wrap:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-height:2.4em}
-footer{text-align:center;padding:32px 16px 0;font-size:0.78rem;color:#374151}
-footer a{color:#4f6ef7;text-decoration:none}
+.card{background:#1a1d27;border:1px solid #252838;border-radius:10px;padding:16px;overflow:hidden;display:flex;flex-direction:column;gap:10px;min-height:160px}
+.card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.sector-name{font-weight:700;font-size:0.93rem;color:#fff;word-break:break-word;overflow-wrap:break-word;line-height:1.3;flex:1}
+.badge{display:inline-block;font-size:0.7rem;font-weight:600;padding:3px 8px;border-radius:20px;white-space:nowrap;flex-shrink:0;align-self:flex-start;margin-top:1px}
+.badge-high{background:rgba(239,68,68,.15);color:#ef4444;border:1px solid rgba(239,68,68,.3)}
+.badge-medium{background:rgba(245,158,11,.12);color:#f59e0b;border:1px solid rgba(245,158,11,.3)}
+.badge-low{background:rgba(34,197,94,.1);color:#22c55e;border:1px solid rgba(34,197,94,.25)}
+.badge-nodata{background:rgba(107,114,128,.12);color:#6b7280;border:1px solid rgba(107,114,128,.3)}
+.story-headline{font-size:0.84rem;color:#c8d3e8;line-height:1.45;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word;overflow-wrap:break-word;max-height:2.9em}
+.story-source{font-size:0.75rem;color:#5a6478;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+.key-theme{font-size:0.78rem;color:#7a8aab;line-height:1.4;overflow:hidden;max-height:2.6em;word-break:break-word;overflow-wrap:break-word}
+.divider{height:1px;background:#252838;flex-shrink:0}
+footer{text-align:center;padding:32px 16px 0;font-size:0.8rem;color:#4a5468}
+footer a{color:#5a7bbd;text-decoration:none}
 footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
 <header>
-  <h1>⚡ Energy Sector Monitor</h1>
-  <div class="meta">Report date: <span>2026-03-05</span> &nbsp;·&nbsp; Last updated: <span>2026-11-07T00:00:00Z</span> &nbsp;·&nbsp; 20 sectors tracked</div>
+  <h1>Energy Sector Monitor</h1>
+  <p class="meta">
+    <span>Report Date: 2026-03-06</span>
+    <span>Last updated: 2026-11-14</span>
+    <span>20 Sectors Tracked</span>
+  </p>
 </header>
-<main>
+
 <div class="grid">
 
   <div class="card">
     <div class="card-header">
-      <div class="card-title">Oil &amp; Gas</div>
+      <span class="sector-name">Oil &amp; Gas</span>
       <span class="badge badge-high">High</span>
     </div>
-    <div class="card-story">Oil prices surged past $100/bbl on Middle East conflict; fell 6% on diplomatic hopes; Goldman raises 2026-27 forecasts</div>
-    <div class="card-theme">Middle East geopolitics driving crude volatility</div>
-    <div class="card-source">Oil &amp; Gas 360 · OilPrice.com</div>
+    <div class="divider"></div>
+    <div class="story-headline">Oil prices fall below $90 on Iran de-escalation signals; Democrats win midterms</div>
+    <div class="story-source">OilAndGas360 / Goldman Sachs</div>
+    <div class="key-theme">Oil prices fell on diplomatic signals; Saudi Aramco profits up 34.5%; IEA warns EU gas market pressure into 2027</div>
   </div>
 
   <div class="card">
     <div class="card-header">
-      <div class="card-title">Coal</div>
+      <span class="sector-name">Coal</span>
       <span class="badge badge-medium">Medium</span>
     </div>
-    <div class="card-story">India: 45 plants at critically low stocks; Russian exports shift from China to India; EIA cuts US coal outlook to 680.5 bn kWh</div>
-    <div class="card-theme">India supply crisis; US coal displacement accelerating</div>
-    <div class="card-source">The Coal Hub · Argus Media</div>
+    <div class="divider"></div>
+    <div class="story-headline">EU coal burn up 11% YoY; global prices fall sharply as Europe and Asia weaken</div>
+    <div class="story-source">Carbon Pulse / The Coal Hub</div>
+    <div class="key-theme">Russian coal exports may drop to 180–190Mt by 2027; Peabody improved thermal performance</div>
   </div>
 
   <div class="card">
     <div class="card-header">
-      <div class="card-title">Nuclear</div>
+      <span class="sector-name">Nuclear</span>
       <span class="badge badge-high">High</span>
     </div>
-    <div class="card-story">Texas SMR reaches final permitting; Google-Constellation 20-yr 890 MW deal; Bruce Power issues $800M green bonds</div>
-    <div class="card-theme">Tech-sector nuclear offtake deals &amp; SMR milestones</div>
-    <div class="card-source">World Nuclear News · Energy Intelligence</div>
+    <div class="divider"></div>
+    <div class="story-headline">DOE offers $5B conditional loan to Constellation; $68B nuclear investment pipeline driven by AI demand</div>
+    <div class="story-source">Neutron Bytes / Industrial Info Resources</div>
+    <div class="key-theme">AI data-centre power demand fuelling nuclear renaissance; Copenhagen Atomics + Urenco partner on deconversion</div>
   </div>
 
   <div class="card">
     <div class="card-header">
-      <div class="card-title">Hydropower</div>
-      <span class="badge badge-medium">Medium</span>
-    </div>
-    <div class="card-story">Pakistan Tarbela 5th Extension Unit-II commissioning Nov 2026; Vietnam sector cautious post-La Niña; Africa adds 4.2 GW in 2025</div>
-    <div class="card-theme">South Asia capacity additions; weather-dependency risk</div>
-    <div class="card-source">APP Pakistan · IHA</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Solar</div>
-      <span class="badge badge-high">High</span>
-    </div>
-    <div class="card-story">DTE Energy's 132 MW Michigan park online; Italy adds 4.83 GW YTD; US pipeline hits record 204.6 GW</div>
-    <div class="card-theme">Record US pipeline; Europe and Asia deployments surge</div>
-    <div class="card-source">PV-Tech · American Clean Power Association</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Wind</div>
-      <span class="badge badge-medium">Medium</span>
-    </div>
-    <div class="card-story">ISO-NE wind 68% above 2025 through Sep; India record 6.05 GW FY25-26; Germany delays offshore seabed auctions</div>
-    <div class="card-theme">Strong US/India growth vs. European policy delays</div>
-    <div class="card-source">EIA · Greentechlead · Wind-Tech International</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Geothermal</div>
-      <span class="badge badge-medium">Medium</span>
-    </div>
-    <div class="card-story">Four major industry conferences in Nov 2026 (UK, NZ, Copenhagen, Cappadocia); Fervo Energy's $1.2B Nasdaq IPO earlier in 2026</div>
-    <div class="card-theme">IPO milestone; global conference season signals sector momentum</div>
-    <div class="card-source">ThinkGeoEnergy</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Biomass / Bioenergy</div>
+      <span class="sector-name">Hydropower</span>
       <span class="badge badge-low">Low</span>
     </div>
-    <div class="card-story">UK Q2 bioenergy output down 3.4% YoY; EIA forecasts slight US biomass capacity increase for 2027; IEA Venice symposium Nov 23-25</div>
-    <div class="card-theme">UK output slips; modest US growth expected</div>
-    <div class="card-source">Biomass Magazine · UK DESNZ</div>
+    <div class="divider"></div>
+    <div class="story-headline">DOE 2026 US Hydropower Market Report shows steady growth; global pumped storage tops 200GW</div>
+    <div class="story-source">US Department of Energy / IHA</div>
+    <div class="key-theme">21 US relicenses in 2025 (most since 2005); Hull Street Energy acquires FirstLight 1,400MW platform</div>
   </div>
 
   <div class="card">
     <div class="card-header">
-      <div class="card-title">Hydrogen</div>
+      <span class="sector-name">Solar</span>
+      <span class="badge badge-high">High</span>
+    </div>
+    <div class="divider"></div>
+    <div class="story-headline">T1 Energy signs 1.58GW module offtake; US AD/CVD orders on solar imports advance</div>
+    <div class="story-source">PV Tech / Taiyang News</div>
+    <div class="key-theme">NextEra Q3 earnings +9.7%; China polysilicon export controls; Pivot Energy closes $500M credit facility</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="sector-name">Wind</span>
+      <span class="badge badge-high">High</span>
+    </div>
+    <div class="divider"></div>
+    <div class="story-headline">US wind pipeline at 53.6GW; Democrats' midterm win could revive offshore wind policy</div>
+    <div class="story-source">Wood Mackenzie / GreenTech Lead</div>
+    <div class="key-theme">Europe heading for record wind year; 2,900km² of US offshore leases in termination settlements</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="sector-name">Geothermal</span>
       <span class="badge badge-medium">Medium</span>
     </div>
-    <div class="card-story">World Hydrogen Expo Korea Nov 4-6 draws 200+ firms; Egypt extends ACWA Power green H2 MoU with 600 MW solar for ammonia</div>
-    <div class="card-theme">International investment summits; North Africa supply ambitions</div>
-    <div class="card-source">Solar Quarter · SMM</div>
+    <div class="divider"></div>
+    <div class="story-headline">Fervo Energy Cape Station achieves commercial operation in Utah — first US commercial EGS</div>
+    <div class="story-source">ThinkGeoEnergy / US DOE</div>
+    <div class="key-theme">NZ tribal projects funded; DOE selects 21 geothermal projects; BLM Idaho lease sale opens</div>
   </div>
 
   <div class="card">
     <div class="card-header">
-      <div class="card-title">Electricity T&amp;D</div>
+      <span class="sector-name">Biomass / Bioenergy</span>
+      <span class="badge badge-nodata">No Data</span>
+    </div>
+    <div class="divider"></div>
+    <div class="story-headline">No November 2026 bioenergy news found</div>
+    <div class="story-source">bioenergy-news.com</div>
+    <div class="key-theme">Most recent: UK wood-fuel trade body formed (June 2026); JPMorgan biomass carbon deal with Graphyte</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="sector-name">Hydrogen</span>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="divider"></div>
+    <div class="story-headline">Global clean hydrogen investment tops $130B; IEA Global Hydrogen Review 2026 published</div>
+    <div class="story-source">Hydrogen Council / IEA</div>
+    <div class="key-theme">Everfuel secures €275M EU grant; Orica Hunter Valley Hub reaches FID; Woodside Beaumont project under review</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="sector-name">Electricity Transmission &amp; Distribution</span>
       <span class="badge badge-high">High</span>
     </div>
-    <div class="card-story">DOE $5.25B SPARK selects 31 transmission projects; Ontario $9.8B Toronto grid plan; Texas approves first 765 kV extra-high-voltage lines</div>
-    <div class="card-theme">Unprecedented US and Canadian grid investment wave</div>
-    <div class="card-source">DOE · IESO · Energy Outlet</div>
+    <div class="divider"></div>
+    <div class="story-headline">GE Vernova to build 6GW HVDC project for India; UK Sea Link 138km cable consented</div>
+    <div class="story-source">Power Magazine / National Grid</div>
+    <div class="key-theme">Sungrow commissions 350MW/1,243MWh UK battery at Hams Hall; US transmission buildout still lagging</div>
   </div>
 
   <div class="card">
     <div class="card-header">
-      <div class="card-title">Energy Storage</div>
+      <span class="sector-name">Energy Storage</span>
       <span class="badge badge-high">High</span>
     </div>
-    <div class="card-story">CATL launches 9MWh TENER+ at All-Energy Australia; Tesla Q3 storage revenues dip despite near-record deployments; global BESS failure rate down 98% since 2018</div>
-    <div class="card-theme">CATL Australia push; market maturity shown in safety data</div>
-    <div class="card-source">Energy-Storage.news</div>
+    <div class="divider"></div>
+    <div class="story-headline">Global BESS shipments forecast at 936GWh in 2026, up 70% year-on-year</div>
+    <div class="story-source">BNEF / Battery-Tech</div>
+    <div class="key-theme">CATL storage at 19% of revenue; China power reforms and AI data centres driving battery boom</div>
   </div>
 
   <div class="card">
     <div class="card-header">
-      <div class="card-title">Energy Efficiency</div>
+      <span class="sector-name">Energy Efficiency &amp; Conservation</span>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="divider"></div>
+    <div class="story-headline">DOE proposed rule could weaken future appliance efficiency standards</div>
+    <div class="story-source">Impakter / Times Free Press</div>
+    <div class="key-theme">Senate vote to eliminate water-heater standards; House bill targets shower-head loophole; PIRG pushback</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="sector-name">Long-Duration Energy Storage</span>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="divider"></div>
+    <div class="story-headline">NYSERDA awards $13M for LDES technologies; Ofgem shortlists 16 projects for 7.6GW UK scheme</div>
+    <div class="story-source">NYSERDA / Ofgem via ESS News</div>
+    <div class="key-theme">Alinta cancels 7.2GWh Oven Mountain pumped hydro; Noon Energy 1GW LDES JV for AI data centres active</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="sector-name">Sodium-Ion Batteries</span>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="divider"></div>
+    <div class="story-headline">CATL and Alfen sign 5GWh sodium-ion Europe deal; HiNa expands Korean partnership to 10GWh</div>
+    <div class="story-source">ESS News / Battery-Tech</div>
+    <div class="key-theme">China grants temporary tax exemption; Natron Energy US shutdown highlights supply-chain challenges outside China</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="sector-name">Green Hydrogen &amp; Green Steel</span>
+      <span class="badge badge-high">High</span>
+    </div>
+    <div class="divider"></div>
+    <div class="story-headline">Thyssenkrupp secures revised tkH2Steel funding; Australia approves POSCO $3B green iron plant</div>
+    <div class="story-source">GMK Center / SteelOrbis</div>
+    <div class="key-theme">Hadean Energy raises A$30M; Saarstahl calls for unified EU energy strategy; 3.7GW electrolytic capacity under construction</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="sector-name">VPPs &amp; Distributed Energy Resources</span>
+      <span class="badge badge-high">High</span>
+    </div>
+    <div class="divider"></div>
+    <div class="story-headline">Brattle/Pew: removing DER barriers could save $614B in US grid costs through 2050</div>
+    <div class="story-source">Energy Storage News / Pew</div>
+    <div class="key-theme">Sunrun doubles Puerto Rico VPP; Google/Voltus 1GW US VPP; sonnen files insolvency; Voltus raises $225M</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="sector-name">AI-Driven Energy Management</span>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="divider"></div>
+    <div class="story-headline">Oracle Opower AI programs cut 1GW of peak demand across North American utilities in 2026</div>
+    <div class="story-source">Unite.ai / Oracle</div>
+    <div class="key-theme">Microsoft, Oracle, NVIDIA form utility AI consortium; NY audits utility AI use citing dependency risk</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="sector-name">Green Iron &amp; Critical Minerals Processing</span>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="divider"></div>
+    <div class="story-headline">Australia approves POSCO $3B Port Hedland green iron plant; Fortescue advances hydrogen-DRI project</div>
+    <div class="story-source">Industrial Info Resources / SteelOrbis</div>
+    <div class="key-theme">Boston Metal raises $51M; CSIRO India-Australia Green Steel Partnership supports 5 low-grade ore projects</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="sector-name">Solar + Battery Hybrid Projects</span>
+      <span class="badge badge-high">High</span>
+    </div>
+    <div class="divider"></div>
+    <div class="story-headline">Bulgaria 242MWp + 773MWh hybrid reaches COD; Victoria SEC secures 10-year Glenrowan offtake</div>
+    <div class="story-source">Energy Storage News</div>
+    <div class="key-theme">Spain Zelestra/EDP 181MWdc + 462MWh PPAs; Edify Energy 360MWp + 1,200MWh Australia EPC awarded</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="sector-name">Circular Economy for Energy Hardware</span>
       <span class="badge badge-low">Low</span>
     </div>
-    <div class="card-story">Vietnam 2026 media awards ceremony expected Nov; US Senate blocks new furnace efficiency standards; heat pump sales 26% above gas furnaces</div>
-    <div class="card-theme">US regulatory rollback; Vietnam promotion campaign</div>
-    <div class="card-source">Vietnam MoIT · PIRG</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Long-Duration Storage (LDES)</div>
-      <span class="badge badge-medium">Medium</span>
-    </div>
-    <div class="card-story">Data-centre demand driving US LDES commercialisation via Form Energy iron-air deals; DOE shortlists $325M for LDES projects; Ireland 600 MW LDES plan</div>
-    <div class="card-theme">Data-centre power needs catalyse LDES market</div>
-    <div class="card-source">Energy-Storage.news · Renewable Watch</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Sodium-Ion Batteries</div>
-      <span class="badge badge-medium">Medium</span>
-    </div>
-    <div class="card-story">CATL signs record 60 GWh supply deal with HyperStrong; targets LFP cost parity and Q4 mass production; Alsym-Juniper plan 500 MWh US deployment</div>
-    <div class="card-theme">CATL mass production imminent; first large US deployment</div>
-    <div class="card-source">ESS News · Battery-Tech.net</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Green H2 &amp; Green Steel</div>
-      <span class="badge badge-medium">Medium</span>
-    </div>
-    <div class="card-story">Stegra (H2GS) Sweden plant launching 2026 backed by €6.5B; Salzgitter secures first green H2 supply contract; Europe faces hydrogen supply gap vs. 2030 steel demand</div>
-    <div class="card-theme">First industrial-scale green steel plant nears launch</div>
-    <div class="card-source">Gasworld · SteelOrbis · Fastmarkets</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">VPPs &amp; DERs</div>
-      <span class="badge badge-medium">Medium</span>
-    </div>
-    <div class="card-story">California Tesla-Sunrun VPP delivers 580 MW in single evening; Voltus raises $225M Series D; China NDRC targets 20+ GW VPP by 2027</div>
-    <div class="card-theme">VPP performance milestones; China policy recognition</div>
-    <div class="card-source">Energy-Storage.news · PV Magazine</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">AI Energy Management</div>
-      <span class="badge badge-high">High</span>
-    </div>
-    <div class="card-story">AI grid management market reaches ~$10.8B in 2026; AI cuts renewable curtailment on European grids; EU accelerates grid digitalisation policy</div>
-    <div class="card-theme">AI becomes central to grid management strategy</div>
-    <div class="card-source">Global Market Insights · The Smartere</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Green Iron &amp; Critical Minerals</div>
-      <span class="badge badge-medium">Medium</span>
-    </div>
-    <div class="card-story">GreenMet announces $150M WV critical minerals hub; Fortescue-TISCO hydrogen DRI trial begins; Rio Tinto invests A$35M in Calix Zesty plant</div>
-    <div class="card-theme">US domestic minerals processing; hydrogen DRI trials scale</div>
-    <div class="card-source">Mining Technology · SteelOrbis</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Solar + Battery Hybrid</div>
-      <span class="badge badge-high">High</span>
-    </div>
-    <div class="card-story">Spain Galileo secures 825 MW hybrid portfolio; Australia Edify 360 MWp + 1,200 MWh QLD projects under construction; Bulgaria 242 MWp + 773 MWh online</div>
-    <div class="card-theme">Hybrid projects at GW-scale in Europe, Australia, Asia</div>
-    <div class="card-source">Energy-Storage.news · ESD News</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Circular Economy</div>
-      <span class="badge badge-medium">Medium</span>
-    </div>
-    <div class="card-story">Solarcycle Georgia facility scales to 1M panels/yr by end-2026; Comstock Metals plans Ohio industrial recycling plant; WA state mandatory recycling law in effect</div>
-    <div class="card-theme">US solar recycling industry reaches industrial scale</div>
-    <div class="card-source">PV-Tech · Solar Guide</div>
+    <div class="divider"></div>
+    <div class="story-headline">SOLARCYCLE opens Cedartown GA facility capable of recycling 10 million panels per year</div>
+    <div class="story-source">YesPress / PV Tech</div>
+    <div class="key-theme">IRENA end-of-life solar PV report (July 2026); EU WEEE directive revision may require regional recycling hubs</div>
   </div>
 
 </div>
-</main>
+
 <footer>
-  <p>Data sourced from public news reports &nbsp;·&nbsp; <a href="https://github.com/proton123-cell/energy-monitor/tree/main/reports" target="_blank" rel="noopener">View all reports on GitHub</a></p>
+  <p>Energy Sector Monitor &mdash; Daily intelligence across 20 key sectors &mdash;
+  <a href="https://github.com/proton123-cell/energy-monitor/tree/main/reports" target="_blank" rel="noopener">View all reports on GitHub</a></p>
 </footer>
 </body>
 </html>
